@@ -59,3 +59,27 @@ h1{font-size:1.8rem}#hero{padding:60px 0}
 .bar{flex-direction:column}.menu{justify-content:center}
 .intro{flex-direction:column}
 }
+/* Hover float effect: lift and shadow on clickable items */
+.btn,.menu a,.card,.panel,.brand{
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease,color .25s ease;
+}
+.btn:hover,.btn:focus{
+  transform:translateY(-4px);
+  box-shadow:0 8px 18px rgba(11,37,69,.35);
+}
+.menu a:hover,.menu a:focus{
+  transform:translateY(-3px);
+  box-shadow:0 6px 14px rgba(11,37,69,.3);
+}
+.card:hover,.panel:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 24px rgba(11,37,69,.22);
+}
+.brand:hover img{transform:scale(1.04)}
+.brand img{transition:transform .25s ease}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion:reduce){
+  .btn,.menu a,.card,.panel,.brand img{transition:none}
+  .btn:hover,.menu a:hover,.card:hover,.panel:hover,.brand:hover img{transform:none}
+}
